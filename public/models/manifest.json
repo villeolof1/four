@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "ready": true,
+  "models": {
+    "easy": {
+      "file": "easy.onnx",
+      "sha256": "158a6191698e925446e70aba8bf250153b03574886ff32a88064f2e971dbf6b4",
+      "source_file": "best-0007808.pt",
+      "source_sha256": "ed1330af73755016095944f3c6e28d334278efe943bbf28610aac8a8ec1be7c5",
+      "training_games": 7808
+    },
+    "medium": {
+      "file": "medium.onnx",
+      "sha256": "2a8a27b9ee5e1d4781b159f6f28e6d93e33994f4b9801afb1025c067b402617b",
+      "source_file": "best-0008832.pt",
+      "source_sha256": "2e7d557e5b1b7d48ecec8c0f34b59b806830c285e632dcb61e456615fb7bb267",
+      "training_games": 8832
+    },
+    "hard": {
+      "file": "hard.onnx",
+      "sha256": "f92547cddafa5c11095dd85b52f67282dcdbcc3dc17e097cb81574423037beb3",
+      "source_file": "best.pt",
+      "source_sha256": "7969443387da18f0fcab978f19d19bb7ae1eee140182c7a5a02cf7bae054b597",
+      "training_games": null
+    }
+  }
+}

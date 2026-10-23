@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f8f7f4" />
+  <meta name="description" content="Four is Connect Four with a twist: challenge a self-trained AI, face a perfect solver, or play a friend." />
+  <meta property="og:title" content="Four — A little game of strategy" />
+  <meta property="og:description" content="Play Connect Four against a human-like self-trained AI, a perfect solver, or a friend." />
+  <title>Four. — Connect Four, beautifully simple</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="wordmark" href="./" aria-label="Four home">four<span class="wordmark-dot">.</span></a>
+      <a class="portfolio-link" href="https://villewedenberg.com" target="_blank" rel="noopener noreferrer">A game by Ville <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="main">
+      <section id="home-screen" class="screen home-screen" aria-labelledby="home-title">
+        <div class="eyebrow"><span class="eyebrow-mark"></span> THE CLASSIC, REIMAGINED</div>
+        <h1 id="home-title">Four in a row.<br /><span class="headline-muted">That's all it takes.</span></h1>
+        <p class="intro">A little strategy. A little luck.<br class="mobile-only" /> One more game?</p>
+        <div class="choices" role="group" aria-label="Choose a game mode">
+          <button id="choose-ai" type="button" class="choice choice-main">
+            <span class="choice-icon" aria-hidden="true">✦</span>
+            <span class="choice-copy"><strong>Play the AI</strong><span>Four levels. One worthy rival.</span></span>
+            <span class="choice-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button id="choose-friend" type="button" class="choice">
+            <span class="choice-icon friend" aria-hidden="true">●●</span>
+            <span class="choice-copy"><strong>Play a friend</strong><span>Two players, one screen.</span></span>
+            <span class="choice-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <div class="mini-disc-row" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </section>
+
+      <section id="levels-screen" class="screen levels-screen" hidden aria-labelledby="levels-title">
+        <button type="button" class="subtle-back" id="levels-back"><span aria-hidden="true">←</span> Back</button>
+        <div class="eyebrow"><span class="eyebrow-mark"></span> PLAY AGAINST THE AI</div>
+        <h1 id="levels-title">Choose your<br /><span class="headline-muted">challenge.</span></h1>
+        <p class="intro">From a friendly game to a flawless opponent.</p>
+        <div class="level-options" role="group" aria-label="Difficulty">
+          <button type="button" class="level" data-level="easy"><span><strong>Easy</strong><small>A relaxed start</small></span><span class="level-count" aria-hidden="true"><i></i></span></button>
+          <button type="button" class="level" data-level="medium"><span><strong>Medium</strong><small>Think a move ahead</small></span><span class="level-count" aria-hidden="true"><i></i><i></i></span></button>
+          <button type="button" class="level" data-level="hard"><span><strong>Hard</strong><small>My self-trained AI at its best</small></span><span class="level-count" aria-hidden="true"><i></i><i></i><i></i></span></button>
+          <button type="button" class="level pro" data-level="pro"><span><strong>Pro <em>PERFECT PLAY</em></strong><small>A solver that never deliberately blunders</small></span><span class="level-count" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+        </div>
+        <p id="level-help" class="help-message" role="status" hidden></p>
+      </section>
+
+      <section id="game-screen" class="screen game-screen" hidden aria-label="Connect Four board">
+        <div class="game-top">
+          <button id="game-back" type="button" class="game-back" aria-label="Change game mode" title="Change game mode">←</button>
+          <div class="match-caption"><span id="game-mode-label">You vs AI</span><strong id="game-difficulty-label">Medium</strong></div>
+          <button id="game-restart" type="button" class="icon-button" aria-label="Restart game" title="Restart game">↻</button>
+        </div>
+        <div class="player-bar">
+          <div class="player-side" id="left-player"><span class="avatar red-avatar">●</span><span class="player-name" id="left-name">You</span></div>
+          <div class="turn-message" id="turn-status" role="status" aria-live="polite">Your turn</div>
+          <div class="player-side right" id="right-player"><span class="player-name" id="right-name">AI</span><span class="avatar gold-avatar">●</span></div>
+        </div>
+        <div class="board-outer" id="board-outer">
+          <div class="column-hover" id="hover-indicator" aria-hidden="true"></div>
+          <div class="board" id="board" aria-label="Connect Four, seven columns, six rows" role="group">
+            <div class="board-grid" id="board-grid" aria-hidden="true"></div>
+            <div class="hit-grid" id="hit-grid" role="group" aria-label="Play in a column"></div>
+          </div>
+        </div>
+        <p class="board-hint" id="board-hint">Tap a column to drop your piece</p>
+        <div class="result-panel" id="result-panel" hidden aria-live="polite">
+          <div><span class="result-eyebrow" id="result-eyebrow">GAME OVER</span><h2 id="result-heading">You win!</h2></div>
+          <div class="result-actions"><button type="button" id="play-again" class="primary-button">Play again <span aria-hidden="true">↗</span></button><button type="button" id="change-mode" class="plain-button">Change mode</button></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>MADE TO PLAY</span><span>GOOD GAMES, NO PRESSURE.</span></footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

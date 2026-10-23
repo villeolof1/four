@@ -1,0 +1,16 @@
+{
+  "files": {
+    "src\\main.js": {
+      "original_bytes_sha": "03209529ed2ca680a010f9b04e9e250f0bda4a06e41cc02bd2475598a7b032f9",
+      "patched_sha": "4faf4ccbb331e0849c02c4ab69fb7ad87adf95e4dc6423d7694953c64bf5721a"
+    },
+    "src\\brain.worker.js": {
+      "original_bytes_sha": "4566effb851be38db5b29a86820d9958acc4544ce5ffb6a705de10e7a119db23",
+      "patched_sha": "8d2572a74efa6a43eab01748cf7c2a5140d52ed1f0155341c7e6f5eb5aaf0388"
+    },
+    "src\\style.css": {
+      "original_bytes_sha": "c23d38521928b2cf2bc4e9d42aed0b8eec5a98e2ff1c08e4f1a7869270baa823",
+      "patched_sha": "a151e7ff24f6bbdd17612ee4da207555c7e14fabc48f6e86a3b21213b08c2ec3"
+    }
+  }
+}

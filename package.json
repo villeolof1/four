@@ -1,0 +1,23 @@
+{
+  "name": "four-public-game",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Four \u2014 a mobile-first Connect Four game using original self-trained neural networks and an independent perfect solver.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.js",
+    "postinstall": "node scripts/sync-runtime.mjs"
+  },
+  "dependencies": {
+    "onnxruntime-web": "^1.22.0",
+    "connect-four-ai-wasm": "^1.0.0"
+  },
+  "devDependencies": {
+    "vite": "^6.3.0",
+    "vite-plugin-wasm": "^3.4.1",
+    "vite-plugin-top-level-await": "^1.5.0"
+  }
+}

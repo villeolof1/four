@@ -1,0 +1,10 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {fresh,apply,legal,replay,encode,clone} from '../src/game.js';
+test('all 7 columns legal; turn alternates; discs stack',()=>{const s=fresh();assert.deepEqual(legal(s),[0,1,2,3,4,5,6]);apply(s,3);apply(s,3);assert.equal(s.cells[0][3],1);assert.equal(s.cells[1][3],2);assert.equal(s.turn,1);});
+test('horizontal victory',()=>{const s=replay([0,0,1,1,2,2,3]);assert.equal(s.winner,1);assert.equal(s.finished,true);assert.equal(s.winning.length,4);assert.deepEqual(legal(s),[]);});
+test('vertical victory',()=>{const s=replay([1,2,1,2,1,2,1]);assert.equal(s.winner,1);});
+test('diagonal victory',()=>{const s=replay([0,1,1,2,4,2,2,3,4,3,5,3,3]);assert.equal(s.winner,1);});
+test('illegal moves do not mutate board',()=>{const s=fresh();for(let i=0;i<6;i++)apply(s,0);const snap=JSON.stringify(s);assert.equal(apply(s,0),null);assert.equal(JSON.stringify(s),snap);assert.ok(!legal(s).includes(0));});
+test('network encoding is relative to current turn top-first',()=>{const s=replay([0,1]);const v=encode(s);assert.equal(v[35],1);assert.equal(v[42+36],1);assert.equal(v.reduce((a,b)=>a+b,0),2);});
+test('copying board independent of original',()=>{const s=fresh(),t=clone(s);apply(t,2);assert.equal(s.moves.length,0);});
+test('game replay rejects moves after finished',()=>{assert.throws(()=>replay([0,0,1,1,2,2,3,4]));});

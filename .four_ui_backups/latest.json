@@ -1,0 +1,15 @@
+{
+  "backup_dir": "backup-20261023-223541-b9b018",
+  "installed_sha": {
+    "index.html": "c37087492a520012d1e7da859ad9bb187f08f190fe0690bfba267f82777c93d5",
+    "src/main.js": "03209529ed2ca680a010f9b04e9e250f0bda4a06e41cc02bd2475598a7b032f9",
+    "src/style.css": "c23d38521928b2cf2bc4e9d42aed0b8eec5a98e2ff1c08e4f1a7869270baa823",
+    "src/brain.worker.js": "4566effb851be38db5b29a86820d9958acc4544ce5ffb6a705de10e7a119db23"
+  },
+  "backup_sha": {
+    "index.html": "d2419ebc853adf3bc208cb649a3e9f167fa38ad104eca3f73aa0728c742474c2",
+    "src/main.js": "2ea33069128f3491b34f90cfe766e7b51a3ff54ac83d5b7a4ae4a6c2f5609eef",
+    "src/style.css": "a1c7e11aff9a19c58105ac13b86b73c97ad77b29b119cb35ccf0173361c261ad",
+    "src/brain.worker.js": "1ccc3be9e1b8fd2ef758f07a19b948c850f025ffc84eb0c09a24e657ef39525d"
+  }
+}
