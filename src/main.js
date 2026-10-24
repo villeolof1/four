@@ -181,7 +181,7 @@ for(const button of document.querySelectorAll('[data-start]'))button.addEventLis
 for(const button of document.querySelectorAll('[data-level]'))button.addEventListener('click',()=>{
   const level=button.dataset.level;
   if(level!=='pro'&&(!manifest.ready||!manifest.models?.[level])){
-    showError('Your saved AI models aren’t included here yet. Run the one-time model exporter in the ZIP to activate Easy, Medium and Hard. Pro and two-player mode are independent.');return;
+    showError('The AI models could not load. Refresh to try again, or choose Pro or local two-player mode.');return;
   }
   begin('ai',level);
 });
@@ -190,3 +190,6 @@ $('play-again').addEventListener('click',resetBoard);
 $('change-mode').addEventListener('click',stopToMenu);
 $('game-back').addEventListener('click',stopToMenu);
 createSlots();syncGameUI();readManifest();
+
+// Read-only state for browser regression checks; rows are bottom-up, columns 0–6.
+window.render_game_to_text=()=>JSON.stringify({screen:game.hidden?(levels.hidden?'home':'levels'):'game',mode,difficulty,moves:board.moves,cells:board.cells,turn:board.turn,winner:board.winner,finished:board.finished,locked,status:STATUS.textContent});

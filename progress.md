@@ -1,0 +1,5 @@
+Original prompt: Inspect the released FOUR game and add a compact More to explore listing; host it cleanly at villewedenberg.com/four/ if suitable. Preserve the private trainer and existing work.
+
+2026-10-24: Isolated codex/portfolio-four-hosting worktree from public main 75667ba. Relative Vite base already supports /four/. Installed locked dependencies without upgrades; 8 rule tests and build passed. Added canonical/share URL, public attribution/source page, accurate missing-model fallback and a read-only browser QA state hook. No model, AI policy or training changes. Browser QA and production readback pending.
+
+2026-10-24 QA: Built app served under /four/. Browser loaded and played Easy, Medium, Hard and Pro without failed requests or page errors. Two-player win/highlight/restart verified at 1440/768/390/320. AI-first and cancellation during restart verified. Official action client run; full screenshots inspected. Only default ONNX WASM/mjs pair needed at runtime; all model binaries remain the released exports. Private trainer untouched. Website ships a public built snapshot; production verification pending.
