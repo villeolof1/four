@@ -9,6 +9,24 @@ let generation=0,requestSequence=0,thinkingResolve=null,locked=false,animation=n
 const REDUCED_MOTION=matchMedia('(prefers-reduced-motion: reduce)');
 const slotByPos=new Map();
 
+// The front face shares the measured slot geometry. Pieces remain on their
+// existing animation plane and are visible only through the board's holes.
+function alignBoardFace(){
+  const bounds=$('board').getBoundingClientRect();
+  if(!bounds.width||!bounds.height)return;
+  $('board-face').setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
+  const holes=[...GRID.children].map(slot=>{
+    const rect=slot.getBoundingClientRect();
+    const hole=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    hole.setAttribute('cx',rect.left-bounds.left+rect.width/2);
+    hole.setAttribute('cy',rect.top-bounds.top+rect.height/2);
+    hole.setAttribute('r',rect.width/2);
+    return hole;
+  });
+  $('face-cutouts').replaceChildren(...holes);
+}
+new ResizeObserver(alignBoardFace).observe(GRID);
+
 function show(screen){for(const s of [home,levels,game])s.hidden=s!==screen;}
 function clearError(){$('level-help').hidden=true;}
 function showError(message){$('level-help').textContent=message;$('level-help').hidden=false;}
