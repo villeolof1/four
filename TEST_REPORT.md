@@ -1,5 +1,19 @@
 # Validation record — 23 October 2026
 
+## Deployment validation — 24 October 2026
+
+The earlier ZIP limitations below are historical. Locked `npm ci`, 8 rule tests and Vite production build now pass. Browser QA was completed under `/four/` locally, on the portfolio Netlify preview and at **https://villewedenberg.com/four/**:
+
+- Easy, Medium, Hard and Pro each loaded their actual engine and returned a legal move.
+- Two-player win/highlight/restart passed at 1440/768/390/320.
+- AI-first and stale-reply cancellation during restart passed.
+- No page errors or failed runtime requests. Actual screenshots inspected; official game action client also used.
+- Public model and WASM bytes matched the validated snapshot. Private trainer/checkpoints untouched.
+
+These are Chromium desktop and mobile viewport tests, not physical iOS/Android certification or an independent proof of AI playing strength. The Pro solver’s perfect-play description comes from the upstream solver, not a new claim about the trained models.
+
+## Historical ZIP checks
+
 ## Executed here
 
 - JavaScript rule tests: 8/8 passed. This covers win directions, column limits, replay invalidation, board perspective encoding and immutable copies.

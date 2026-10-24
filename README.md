@@ -10,9 +10,11 @@ A mobile-first, standalone static site. **The original `four-ai` trainer remains
 - Easy / Medium / Hard: three **distinct saved neural networks** trained by your private FOUR / AI self-play application. The exporter never trains, modifies or generates these weights.
 - Pro: independent MIT-licensed perfect solver via `connect-four-ai-wasm`, executing off the main UI thread. No fallback to approximations; a failed engine reports an error.
 
-## Recommended public address
+## Public address
 
-Deploy this as its **own static Netlify project**, e.g. `four.villewedenberg.com`, and add a project card linking there from `villewedenberg.com`. This isolates the game's build and dependencies from the portfolio.
+Live at **https://villewedenberg.com/four/**, with a compact listing in the portfolio’s More to explore section. The owner chose a path on the existing domain. The source stays in this repository; a validated static build is copied into the portfolio repository’s `four/` directory. Vite’s relative base supports this path without a separate Netlify project or DNS change. See `PORTFOLIO_INTEGRATION.md` for updates.
+
+On 24 October 2026, the locked production build and all four AI levels were verified locally, on Netlify preview and at the public URL. Two-player wins/restart were tested at 1440/768/390/320; AI-first and restart cancellation also passed. The older ZIP verification notes below describe an earlier environment, not the current deployment. `TEST_REPORT.md` records both stages.
 
 ## 1. Copy and unzip alongside your existing project
 

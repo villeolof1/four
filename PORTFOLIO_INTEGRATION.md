@@ -1,25 +1,17 @@
-# Publishing FOUR with villewedenberg.com
+# FOUR on villewedenberg.com
 
-**Recommended:** a separate Netlify project served at `four.villewedenberg.com`, linked from a new project card on your existing portfolio. This means you can edit/deploy FOUR without rebuilding your consulting website.
+Public game: **https://villewedenberg.com/four/**. The owner chose same-domain hosting. The consulting homepage lists FOUR as a compact More to explore item, retaining the client work above it. FOUR is available on desktop and mobile.
 
-Suggested portfolio card copy:
+Source and models remain in `villeolof1/four`. Netlify serves a static build snapshot from the `four/` directory of `villeolof1/ville-wedenberg-site`; changes in this source repository do not automatically republish that snapshot.
 
-**FOUR — Play Connect Four**
+## Updating the deployed game
 
-A minimalist Connect Four game with a twist: three opponents powered by my own neural networks trained entirely through self-play, plus a perfect-play challenge. Play on your phone or desktop, or challenge a friend.
+1. Keep the private `four-ai` trainer, checkpoints and data separate and untouched.
+2. Use the public lockfile: `npm ci`, `npm test`, `npm run build`.
+3. Serve the build at `/four/` during QA. Verify all four AI levels, local two-player win/restart, AI-first and cancellation. Check desktop and mobile including 320px.
+4. In an isolated portfolio feature branch, copy the public `dist` contents into `four/`. Retain models, emitted assets, favicon, credits and license notices. The default ONNX runtime needs `vendor/ort/ort-wasm-simd-threaded.mjs` and `.wasm`; unused asyncify/jsep/jspi variants are omitted from the current portfolio build.
+5. Review/push/PR the portfolio snapshot, pass its Netlify preview checks, merge normally, then verify the actual public URL and model/WASM loading. Preserve all other portfolio content and settings.
 
-**Try the game →** `https://four.villewedenberg.com`
+The current build corresponds to source head `4cfb98134226ef5cd7942d467a907c0655366bfb` (merged by source PR #1). Source documentation-only updates do not require rebuilding that snapshot.
 
-Use a screenshot of the actual game board (not a fake AI score chart). Keep the portfolio listing short and put the technical background in its case-study text, if needed. Source code for the private trainer should stay separate from the public game and its static build.
-
-Deployment checklist:
-
-1. Keep your current `four-ai` trainer and models folder private, untouched.
-2. Export three distinct historical models into this public project.
-3. `npm install && npm run build` and verify all four difficulties in desktop Chrome and mobile Safari/Chrome.
-4. Create a **new** Netlify site pointed at this public repo or drag the built `dist` folder into Netlify.
-5. Add `four.villewedenberg.com` as a custom domain, configure the required DNS record per Netlify's instructions, and verify HTTPS.
-6. Add an ordinary link from your portfolio to the game. Do not overwrite the existing Netlify site's configuration.
-7. Include attribution in your repository or legal/credits documentation for the MIT-licensed perfect solver and runtime dependencies.
-
-A public release is not yet deployed by this ZIP; publishing and DNS remain actions for the site's owner.
+Pro uses Benjamin Rall’s independent MIT solver; Easy/Medium/Hard use the released self-trained neural networks. Credits distinguish them. Do not publish private training files or claim measured AI strength that has not been evaluated.
