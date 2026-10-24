@@ -44,6 +44,7 @@ body{background:radial-gradient(ellipse 95% 66% at 49% 30%,#131e2d 0%,#0c1018 72
 .result-eyebrow{color:#97a7bb}.result-panel h2{color:#f0f5fb}
 .primary-button{background:#32557e;color:#f5faff}.primary-button:hover{background:#3f6899}
 .plain-button{color:#a0b0c3}.plain-button:hover{color:#edf4fa}
+.footer a{color:inherit;text-decoration:underline;text-underline-offset:4px}
 /* A compact two-choice control replaces an entire settings screen. */
 .start-choice{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:-16px 0 18px;padding:0 2px}
 .start-label{font-size:13px;color:#adbacc;font-weight:600}
